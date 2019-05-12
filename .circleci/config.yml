@@ -7,6 +7,8 @@ defaults: &defaults
 
 jobs:
   test:
+    docker:
+      - image: buildpack-deps:trusty
     steps:
       - checkout
       - restore_cache:
@@ -24,6 +26,8 @@ jobs:
             - node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
   publish:
+    docker:
+      - image: buildpack-deps:trusty
     steps:
       - checkout
       - run:
