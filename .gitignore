@@ -1,0 +1,11 @@
+coverages
+
+node_modules
+
+.env
+yarn-error.log
+
+.vscode
+
+cypress/screenshots
+cypress/videos

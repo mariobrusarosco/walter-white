@@ -4,7 +4,9 @@ const expect = function(testedValue) {
 			if(testedValue !== expectedValue) {
 				throw new Error(`${testedValue} isn't as pure as ${expectedValue}`)
 			}
-		}
+		},
+		// TODO
+		//toContains:
 	}
 }
 
