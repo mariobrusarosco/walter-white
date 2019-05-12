@@ -18,10 +18,10 @@ jobs:
           - v1-dependencies-
       - run:
           name: Installation
-          command: yarn
+          command: npm install
       - run:
           name: Run Lint
-          command: yarn eslint
+          command: npm run eslint
 
       - save_cache:
           paths:
