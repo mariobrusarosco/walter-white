@@ -40,22 +40,10 @@ workflows:
     jobs:
       - build:
           filters:
-            branches:
-              only:
-                - master
-                - development
             tags:
               only: /^v.*/
 
-      - deploy-dev:
-          requires:
-            - build
-          filters:
-            branches:
-              only:
-                - development
-
-      - deploy-prod:
+      - publish:
           requires:
             - build
           filters:
