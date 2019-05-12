@@ -35,17 +35,31 @@ jobs:
 
 workflows:
   version: 2
-  test-plublish:
+
+  build-deploy:
     jobs:
-      - build
-        filters:
-          tags:
-            only: /^v.*/
-      - publish
+      - build:
+          filters:
+            branches:
+              only:
+                - master
+                - development
+            tags:
+              only: /^v.*/
+
+      - deploy-dev:
           requires:
             - build
           filters:
+            branches:
+              only:
+                - development
+
+      - deploy-prod:
+          requires:
+            - build
+          filters:
+            branches:
+              ignore: /.*/
             tags:
               only: /^v.*/
-            branches:
-              ignores: /.*/
