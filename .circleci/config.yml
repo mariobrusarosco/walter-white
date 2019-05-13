@@ -19,10 +19,14 @@ jobs:
             - v1-dependencies-
       -
         run: 'npm install'
-      -
-        run:
-          name: 'Run tests'
-          command: 'npm --v'
+#       -
+#         run:
+#           name: 'Run eslint'
+#           command: 'npm --v'
+#       -
+#         run:
+#           name: 'Run tests'
+#           command: 'npm --v'
       -
         save_cache:
           paths:
@@ -54,7 +58,12 @@ workflows:
   test-deploy:
     jobs:
       -
-        test
+        test:
+          filters:
+            tags:
+              only: /^v.*/
+            branches:
+              ignore: /.*/
       -
         deploy:
           requires:
