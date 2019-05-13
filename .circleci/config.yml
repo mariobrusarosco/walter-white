@@ -7,7 +7,8 @@ defaults:
 jobs:
   publish:
     docker:
-      - image: circleci/<language>:<version TAG>
+    -
+      image: 'circleci/node:8.9.1'
     steps:
       - checkout
       - run: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" >> ~/.npmrc
