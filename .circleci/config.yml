@@ -45,7 +45,8 @@ jobs:
         run:
           name: 'Publish package'
           command: 'npm publish'
- workflows:
+ 
+workflows:
   version: 2
   deploy:
     jobs:
