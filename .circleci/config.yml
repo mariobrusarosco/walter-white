@@ -20,10 +20,6 @@ jobs:
       -
         run: 'npm install'
       -
-        run:
-          name: 'Run tests'
-          command: 'npm test'
-      -
         save_cache:
           paths:
             - node_modules
@@ -54,16 +50,4 @@ workflows:
   test-deploy:
     jobs:
       -
-        test:
-          filters:
-            tags:
-              only: '/^v.*/'
-      -
         deploy:
-          requires:
-            - test
-          filters:
-            tags:
-              only: '/^v.*/'
-            branches:
-              ignore: '/.*/'
