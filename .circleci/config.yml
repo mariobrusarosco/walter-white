@@ -50,7 +50,7 @@ workflows:
   test-deploy:
     jobs:
       -
-        test:
+        test
       -
         deploy:
           requires:
