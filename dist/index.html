@@ -5,8 +5,57 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<title>Document</title>
+	<style>
+		.pass { background-color: green; color: #fff; }
+		.fail { background-color: tomato; color: #fff; }
+	</style>
 </head>
 <body>
+	<div class="results-lists">
+
+	</div>
 	<script src="walter-white.js"></script>
+	<script>
+		const assert = WalterWhite.assertion.assert
+		const groupTest = WalterWhite.assertion.groupTest
+		const asyncTest = WalterWhite.assertion.asyncTest
+		const pause = WalterWhite.assertion.pause
+
+		document.addEventListener("DOMContentLoaded", function(event) {
+			// assert(true, 'This test has passed')
+			// assert(false, 'This test has failed')
+
+			// groupTest('First Group', function() {
+			// 	debugger
+			// 	assert(true, 'This test has passed')
+			// 	assert(true, 'This test has passed')
+			// 	assert(true, 'This test has passed')
+			// })
+
+			// groupTest('Second Group', function() {
+			// 	assert(true, 'This test has passed')
+			// 	assert(false, 'This test has failed')
+			// 	assert(true, 'This test has passed')
+			// })
+
+			asyncTest('#1 Async Test', function() {
+				pause()
+
+				setTimeout(() => {
+					assert(true, 'First test')
+					resume()
+				}, 1000);
+			})
+
+			asyncTest("#2 Async Test", function(){
+				pause()
+
+				setTimeout(() => {
+					assert(true, 'Second test')
+					resume()
+				}, 1000);
+			})
+		});
+	</script>
 </body>
 </html>
