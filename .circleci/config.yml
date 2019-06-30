@@ -19,10 +19,10 @@ jobs:
             - v1-dependencies-
       -
         run: 'npm install'
-#       -
-#         run:
-#           name: 'Run eslint'
-#           command: 'npm --v'
+      -
+        run:
+          name: 'Run eslint'
+          command: 'yarn eslint'
 #       -
 #         run:
 #           name: 'Run tests'

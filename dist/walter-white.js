@@ -104,8 +104,6 @@ return /******/ (function(modules) { // webpackBootstrap
 /***/ (function(module, exports) {
 
 let results;
-let paused = false;
-let queue = [];
 
 const assert = (value, text) => {
   const li = document.createElement('li')
@@ -132,42 +130,9 @@ const groupTest = function(name, fn) {
   fn()
 }
 
-const asyncTest = (name, fn) => {
-  queue.push(function() {
-    results = document.querySelector('.results-lists')
-    results = assert(true, name)
-      .appendChild(document.createElement('ul'))
-
-    fn()
-  })
-
-  runTest()
-}
-
-/* eslint-disable */
-const pause = () => paused = true
-/* eslint-enable */
-const resume = () => {
-  paused = false
-
-  setTimeout(runTest, 1)
-}
-
-const runTest = function() {
-  if(!paused && queue.length) {
-    queue.shift()()
-
-    if(!paused) {
-      resume()
-    }
-  }
-}
-
 module.exports = {
   assert,
   groupTest,
-  asyncTest,
-  pause
 }
 
 
@@ -239,6 +204,76 @@ module.exports = {
 
 /***/ }),
 
+/***/ "./src/Utils/ElapsedTime/index.js":
+/*!****************************************!*\
+  !*** ./src/Utils/ElapsedTime/index.js ***!
+  \****************************************/
+/*! exports provided: ElapsedTime */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ElapsedTime", function() { return ElapsedTime; });
+// Settings
+const secondInMs = 1000
+const minuteInMs = secondInMs * 60
+const hourInMs = minuteInMs * 60
+const dayInMs = hourInMs * 24
+const weekInMs = dayInMs * 24
+
+// Helpers
+const roundTime = R.pipe(
+  R.defaultTo(''),
+  time => Math.floor(time),
+  R.defaultTo('...')
+)
+
+const lessThanAMinute = val => R.lt(val, minuteInMs)
+const betweenAMinuteAndAnHour = val => R.gte(val, minuteInMs) && R.lt(val, hourInMs)
+const betweenAnHourAndADay = val => R.gte(val, hourInMs) && R.lt(val, dayInMs)
+const betweenADayAndAWeek = val => R.gte(val, dayInMs) && R.lt(val, weekInMs)
+
+const runConditions = R.cond([
+  [lessThanAMinute, R.always('Há menos de 1 min')],
+  [betweenAMinuteAndAnHour, time => `Há ${roundTime(time / minuteInMs)} min`],
+  [betweenAnHourAndADay, time => `Há ${roundTime(time / hourInMs)}h`],
+  [betweenADayAndAWeek, time => `Há ${roundTime(time / dayInMs)}d`],
+  [R.T, time => `Há ${roundTime(time / weekInMs)} sem`],
+])
+
+const ElapsedTime = notificationTimestamp => {
+
+  const diffMilliseconds = R.pipe(
+    timestamp => Date.parse(timestamp),
+    R.subtract(Date.now(), R.__)
+  )(notificationTimestamp)
+
+  if (isNaN(diffMilliseconds) || !diffMilliseconds) {
+    console.log(`[ ERROR -> You must pass an ISO date format`)
+    return ''
+  }
+
+
+  return runConditions(diffMilliseconds);
+}
+
+
+/***/ }),
+
+/***/ "./src/Utils/index.js":
+/*!****************************!*\
+  !*** ./src/Utils/index.js ***!
+  \****************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+const ElapsedTime = __webpack_require__(/*! ./ElapsedTime */ "./src/Utils/ElapsedTime/index.js")
+
+module.exports = ElapsedTime
+
+
+/***/ }),
+
 /***/ "./src/index.js":
 /*!**********************!*\
   !*** ./src/index.js ***!
@@ -246,7 +281,13 @@ module.exports = {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! ./Lab */ "./src/Lab/index.js")
+const Lab = __webpack_require__(/*! ./Lab */ "./src/Lab/index.js")
+const Utils = __webpack_require__(/*! ./Utils */ "./src/Utils/index.js")
+
+module.exports = {
+  Lab,
+  Utils
+}
 
 // const DrugLord = "Walter White"
 

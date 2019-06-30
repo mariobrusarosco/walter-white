@@ -1,5 +1,7 @@
 coverages
 
+build/index.html
+
 node_modules
 
 .env
@@ -9,3 +11,4 @@ yarn-error.log
 
 cypress/screenshots
 cypress/videos
+node_modules

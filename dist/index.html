@@ -11,22 +11,25 @@
 	</style>
 </head>
 <body>
+	<div id="timestamp">
+
+	</div>
 	<div class="results-lists">
 
 	</div>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/ramda/0.25.0/ramda.min.js"></script>
 	<script src="walter-white.js"></script>
 	<script>
-		const assert = WalterWhite.assertion.assert
-		const groupTest = WalterWhite.assertion.groupTest
-		const asyncTest = WalterWhite.assertion.asyncTest
-		const pause = WalterWhite.assertion.pause
+		const assert = WalterWhite.Lab.assertion.assert
+		const groupTest = WalterWhite.Lab.assertion.groupTest
+		const asyncTest = WalterWhite.Lab.assertion.asyncTest
+		const pause = WalterWhite.Lab.assertion.pause
 
 		document.addEventListener("DOMContentLoaded", function(event) {
 			// assert(true, 'This test has passed')
 			// assert(false, 'This test has failed')
 
 			// groupTest('First Group', function() {
-			// 	debugger
 			// 	assert(true, 'This test has passed')
 			// 	assert(true, 'This test has passed')
 			// 	assert(true, 'This test has passed')
@@ -38,24 +41,15 @@
 			// 	assert(true, 'This test has passed')
 			// })
 
-			asyncTest('#1 Async Test', function() {
-				pause()
+			var ElapsedTime = WalterWhite.Utils.ElapsedTime
+			var timestamp = ElapsedTime('2019-06-30T19:41:50.357Z')
 
-				setTimeout(() => {
-					assert(true, 'First test')
-					resume()
-				}, 1000);
-			})
-
-			asyncTest("#2 Async Test", function(){
-				pause()
-
-				setTimeout(() => {
-					assert(true, 'Second test')
-					resume()
-				}, 1000);
-			})
+			var timestampElem = document.querySelector('#timestamp')
+				timestampElem.appendChild(
+					document.createTextNode(timestamp)
+				)
 		});
+
 	</script>
 </body>
 </html>
