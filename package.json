@@ -23,7 +23,6 @@
 		"url": "https://github.com/mariobrusarosco/walter-white/issues"
 	},
 	"homepage": "https://github.com/mariobrusarosco/walter-white#readme",
-	"sideEffects": false,
 	"devDependencies": {
 		"eslint": "^5.11.1",
 		"express": "^4.16.4",
