@@ -46,8 +46,8 @@ workflows:
           branches:
             ignore: /.*/
     - deploy:
-        # requires:
-        # - test
+        requires:
+        - test
         # filters:
         #   tags:
         #     only: /^v.*/
