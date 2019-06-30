@@ -17,12 +17,10 @@ jobs:
           keys:
             - 'v1-dependencies-{{ checksum "package.json" }}'
             - v1-dependencies-
-      -
-        run: 'npm install'
-      -
-        run:
-          name: 'Run eslint'
-          command: 'yarn eslint'
+#       -
+#         run:
+#           name: 'Run eslint'
+#           command: 'npm --v'
 #       -
 #         run:
 #           name: 'Run tests'
@@ -58,17 +56,16 @@ workflows:
   test-deploy:
     jobs:
       - test:
-          filters:
-            tags:
-              only: /^v.*/
-            branches:
-              ignore: /.*/
+          # filters:
+          #   tags:
+          #     only: /^v.*/
+          #   branches:
+          #     ignore: /.*/
       - deploy:
           requires:
             - test
-          filters:
-            tags:
-              only: /^v.*/
-            branches:
-              ignore: /.*/
-
+          # filters:
+          #   tags:
+          #     only: /^v.*/
+          #   branches:
+          #     ignore: /.*/
