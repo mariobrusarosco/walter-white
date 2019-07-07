@@ -1,6 +1,6 @@
 {
 	"name": "walter-white",
-	"version": "1.0.11",
+	"version": "1.0.12",
 	"author": "Mario Brusarosco <mariobrusarosco@gmail.com> (http://example.com)",
 	"description": "",
 	"main": "dist/walter-white.js",
