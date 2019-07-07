@@ -41,13 +41,22 @@
 			// 	assert(true, 'This test has passed')
 			// })
 
-			var ElapsedTime = WalterWhite.Utils.ElapsedTime
-			var timestamp = ElapsedTime('2019-06-30T19:41:50.357Z')
+			// var ElapsedTime = WalterWhite.Utils.ElapsedTime
+			// var timestamp = ElapsedTime('2019-06-30T19:41:50.357Z')
 
-			var timestampElem = document.querySelector('#timestamp')
-				timestampElem.appendChild(
-					document.createTextNode(timestamp)
-				)
+			// var timestampElem = document.querySelector('#timestamp')
+			// 	timestampElem.appendChild(
+			// 		document.createTextNode(timestamp)
+			// 	)
+
+			const Pipe = WalterWhite.Utils.Pipe
+
+			const Test = Pipe(
+				x => x.toUpperCase(),
+				x => x.replace(/\s/g,'-')
+			)('  mar  io  ')
+
+			console.log(Test)
 		});
 
 	</script>

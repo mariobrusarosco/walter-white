@@ -208,12 +208,9 @@ module.exports = {
 /*!****************************************!*\
   !*** ./src/Utils/ElapsedTime/index.js ***!
   \****************************************/
-/*! exports provided: ElapsedTime */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/*! no static exports found */
+/***/ (function(module, exports) {
 
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ElapsedTime", function() { return ElapsedTime; });
 // Settings
 const secondInMs = 1000
 const minuteInMs = secondInMs * 60
@@ -257,6 +254,24 @@ const ElapsedTime = notificationTimestamp => {
   return runConditions(diffMilliseconds);
 }
 
+module.exports = ElapsedTime
+
+
+/***/ }),
+
+/***/ "./src/Utils/Pipe/index.js":
+/*!*********************************!*\
+  !*** ./src/Utils/Pipe/index.js ***!
+  \*********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+const Pipe = (...functions) => initialValue => {
+    return functions.reduce((acc, fn) => fn(acc), initialValue)
+  }
+
+module.exports = Pipe
+
 
 /***/ }),
 
@@ -268,8 +283,12 @@ const ElapsedTime = notificationTimestamp => {
 /***/ (function(module, exports, __webpack_require__) {
 
 const ElapsedTime = __webpack_require__(/*! ./ElapsedTime */ "./src/Utils/ElapsedTime/index.js")
+const Pipe = __webpack_require__(/*! ./Pipe */ "./src/Utils/Pipe/index.js")
 
-module.exports = ElapsedTime
+module.exports = {
+  ElapsedTime,
+  Pipe
+}
 
 
 /***/ }),

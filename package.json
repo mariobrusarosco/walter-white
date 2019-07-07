@@ -12,7 +12,7 @@
 		"test": "jest --config jest.config.js",
 		"test:watch": "yarn test -- --watch",
 		"build": "yarn eslint && webpack --config webpack.config.js",
-		"eslint": "eslint src/**/*"
+		"eslint": "eslint --cache --fix src/**/*"
 	},
 	"repository": {
 		"type": "git",

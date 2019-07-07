@@ -25,7 +25,7 @@ const runConditions = R.cond([
   [R.T, time => `Há ${roundTime(time / weekInMs)} sem`],
 ])
 
-export const ElapsedTime = notificationTimestamp => {
+const ElapsedTime = notificationTimestamp => {
 
   const diffMilliseconds = R.pipe(
     timestamp => Date.parse(timestamp),
@@ -40,3 +40,5 @@ export const ElapsedTime = notificationTimestamp => {
 
   return runConditions(diffMilliseconds);
 }
+
+module.exports = ElapsedTime
