@@ -57,6 +57,29 @@
 			)('  mar  io  ')
 
 			console.log(Test)
+
+			const Curry = WalterWhite.Utils.Curry
+
+			const fnTest = (object, method, number) => {
+				return object[method](number)
+			}
+
+			const obj = { print: number => number * number }
+			const curried = Curry(fnTest)
+			const objAndMethod = curried(obj, 'print')
+			const finalNumber = objAndMethod(3000)
+
+			console.log(finalNumber)
+
+			const addFiveNumbers = Curry((n1,n2,n3,n4,n5) => {
+				return n1 + n2 + n3 + n4 + n5
+			})
+
+			const add1 = addFiveNumbers(1)
+			const add2 = add1(2, 3)
+			const add3 = add2(5, 9)
+
+			console.log(add3)
 		});
 
 	</script>

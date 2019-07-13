@@ -204,6 +204,37 @@ module.exports = {
 
 /***/ }),
 
+/***/ "./src/Utils/Curry/index.js":
+/*!**********************************!*\
+  !*** ./src/Utils/Curry/index.js ***!
+  \**********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+const Curry = function() {
+  const fn = arguments[0]
+  const expectedArgs = fn.length
+  let args = []
+
+  const wrapperFunction = function() {
+    args = [...args, ...arguments]
+
+    if(args.length === expectedArgs) {
+      return fn(...args)
+    }
+
+    return wrapperFunction
+  }
+
+  return wrapperFunction
+}
+
+
+module.exports = Curry
+
+
+/***/ }),
+
 /***/ "./src/Utils/ElapsedTime/index.js":
 /*!****************************************!*\
   !*** ./src/Utils/ElapsedTime/index.js ***!
@@ -282,12 +313,10 @@ module.exports = Pipe
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-const ElapsedTime = __webpack_require__(/*! ./ElapsedTime */ "./src/Utils/ElapsedTime/index.js")
-const Pipe = __webpack_require__(/*! ./Pipe */ "./src/Utils/Pipe/index.js")
-
 module.exports = {
-  ElapsedTime,
-  Pipe
+  ElapsedTime: __webpack_require__(/*! ./ElapsedTime */ "./src/Utils/ElapsedTime/index.js"),
+  Pipe: __webpack_require__(/*! ./Pipe */ "./src/Utils/Pipe/index.js"),
+  Curry: __webpack_require__(/*! ./Curry */ "./src/Utils/Curry/index.js"),
 }
 
 

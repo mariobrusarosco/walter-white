@@ -1,7 +1,5 @@
-const ElapsedTime = require('./ElapsedTime')
-const Pipe = require('./Pipe')
-
 module.exports = {
-  ElapsedTime,
-  Pipe
+  ElapsedTime: require('./ElapsedTime'),
+  Pipe: require('./Pipe'),
+  Curry: require('./Curry'),
 }
