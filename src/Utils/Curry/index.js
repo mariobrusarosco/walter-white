@@ -3,7 +3,7 @@ const Curry = function() {
   const expectedArgs = fn.length
   let args = []
 
-  const wrapperFunction = function() {
+  return function wrapperFunction() {
     args = [...args, ...arguments]
 
     if(args.length === expectedArgs) {
@@ -12,9 +12,6 @@ const Curry = function() {
 
     return wrapperFunction
   }
-
-  return wrapperFunction
 }
-
 
 module.exports = Curry
