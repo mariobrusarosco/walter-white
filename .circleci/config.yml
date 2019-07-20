@@ -21,6 +21,9 @@ jobs:
     - run:
         name: Run Lint
         command: yarn eslint
+    - run:
+        name: Run Tests
+        command: yarn test
     - save_cache:
         paths:
         - node_modules

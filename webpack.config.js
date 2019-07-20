@@ -9,7 +9,7 @@ module.exports = {
 		filename: 'walter-white.js',
 		library: {
       root: 'WalterWhite',
-      commonjs: 'walterwhite'
+			commonjs: 'walterwhite',
     },
 		libraryTarget: 'umd'
 	},

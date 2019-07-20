@@ -1,3 +1,4 @@
+const R = require('ramda')
 // Settings
 const secondInMs = 1000
 const minuteInMs = secondInMs * 60

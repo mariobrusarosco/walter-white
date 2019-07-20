@@ -1,13 +1,13 @@
 (function webpackUniversalModuleDefinition(root, factory) {
 	if(typeof exports === 'object' && typeof module === 'object')
-		module.exports = factory();
+		module.exports = factory(require("ramda"));
 	else if(typeof define === 'function' && define.amd)
-		define([], factory);
+		define(["ramda"], factory);
 	else if(typeof exports === 'object')
-		exports["walterwhite"] = factory();
+		exports["walterwhite"] = factory(require("ramda"));
 	else
-		root["WalterWhite"] = factory();
-})(window, function() {
+		root["WalterWhite"] = factory(root["ramda"]);
+})(window, function(__WEBPACK_EXTERNAL_MODULE_ramda__) {
 return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
@@ -237,8 +237,9 @@ module.exports = Curry
   !*** ./src/Utils/ElapsedTime/index.js ***!
   \****************************************/
 /*! no static exports found */
-/***/ (function(module, exports) {
+/***/ (function(module, exports, __webpack_require__) {
 
+const R = __webpack_require__(/*! ramda */ "ramda")
 // Settings
 const secondInMs = 1000
 const minuteInMs = secondInMs * 60
@@ -345,6 +346,17 @@ module.exports = {
 // })
 
 
+
+/***/ }),
+
+/***/ "ramda":
+/*!************************!*\
+  !*** external "ramda" ***!
+  \************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = __WEBPACK_EXTERNAL_MODULE_ramda__;
 
 /***/ })
 

@@ -1,6 +1,6 @@
 {
 	"name": "walter-white",
-	"version": "1.0.13",
+	"version": "1.0.14",
 	"author": "Mario Brusarosco <mariobrusarosco@gmail.com> (http://example.com)",
 	"description": "",
 	"main": "dist/walter-white.js",
@@ -12,7 +12,7 @@
 		"test": "jest --config jest.config.js",
 		"test:watch": "yarn test -- --watch",
 		"build": "yarn eslint && webpack --config webpack.config.js",
-		"eslint": "eslint --cache --fix src/**/*"
+		"eslint": "eslint --cache --fix src/"
 	},
 	"repository": {
 		"type": "git",
