@@ -13,7 +13,7 @@ describe("Curry Test", () => {
     const threeArgumentsCurried = oneArgumentCurried(2,3)
     const allArgumentsCurried = threeArgumentsCurried(4,5,6)
 
-    const allArgumentsInATime = curriedFunction(1,2,3,4,5,6)
+    const allArgumentsInATime = curriedFunction(1,2,3,4,5,6,7)
 
     it('Must Call the Curry helper and return a function', () => {
       expect(typeof Curry(addSixNumbers)).toBe('function')

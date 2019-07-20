@@ -219,8 +219,8 @@ const Curry = function() {
   return function wrapperFunction() {
     args = [...args, ...arguments]
 
-    if(args.length === expectedArgs) {
-      const finalArguments = args
+    if(args.length >= expectedArgs) {
+      const finalArguments = args.slice(0, expectedArgs)
       args = []
 
       return fn(...finalArguments)
