@@ -1,13 +1,13 @@
 (function webpackUniversalModuleDefinition(root, factory) {
 	if(typeof exports === 'object' && typeof module === 'object')
-		module.exports = factory(require("ramda"));
+		module.exports = factory();
 	else if(typeof define === 'function' && define.amd)
-		define(["ramda"], factory);
+		define([], factory);
 	else if(typeof exports === 'object')
-		exports["walterwhite"] = factory(require("ramda"));
+		exports["walterwhite"] = factory();
 	else
-		root["WalterWhite"] = factory(root["ramda"]);
-})(window, function(__WEBPACK_EXTERNAL_MODULE_ramda__) {
+		root["WalterWhite"] = factory();
+})(window, function() {
 return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
@@ -232,62 +232,6 @@ module.exports = Curry
 
 /***/ }),
 
-/***/ "./src/Utils/ElapsedTime/index.js":
-/*!****************************************!*\
-  !*** ./src/Utils/ElapsedTime/index.js ***!
-  \****************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-const R = __webpack_require__(/*! ramda */ "ramda")
-// Settings
-const secondInMs = 1000
-const minuteInMs = secondInMs * 60
-const hourInMs = minuteInMs * 60
-const dayInMs = hourInMs * 24
-const weekInMs = dayInMs * 24
-
-// Helpers
-const roundTime = R.pipe(
-  R.defaultTo(''),
-  time => Math.floor(time),
-  R.defaultTo('...')
-)
-
-const lessThanAMinute = val => R.lt(val, minuteInMs)
-const betweenAMinuteAndAnHour = val => R.gte(val, minuteInMs) && R.lt(val, hourInMs)
-const betweenAnHourAndADay = val => R.gte(val, hourInMs) && R.lt(val, dayInMs)
-const betweenADayAndAWeek = val => R.gte(val, dayInMs) && R.lt(val, weekInMs)
-
-const runConditions = R.cond([
-  [lessThanAMinute, R.always('Há menos de 1 min')],
-  [betweenAMinuteAndAnHour, time => `Há ${roundTime(time / minuteInMs)} min`],
-  [betweenAnHourAndADay, time => `Há ${roundTime(time / hourInMs)}h`],
-  [betweenADayAndAWeek, time => `Há ${roundTime(time / dayInMs)}d`],
-  [R.T, time => `Há ${roundTime(time / weekInMs)} sem`],
-])
-
-const ElapsedTime = notificationTimestamp => {
-
-  const diffMilliseconds = R.pipe(
-    timestamp => Date.parse(timestamp),
-    R.subtract(Date.now(), R.__)
-  )(notificationTimestamp)
-
-  if (isNaN(diffMilliseconds) || !diffMilliseconds) {
-    console.log(`[ ERROR -> You must pass an ISO date format`)
-    return ''
-  }
-
-
-  return runConditions(diffMilliseconds);
-}
-
-module.exports = ElapsedTime
-
-
-/***/ }),
-
 /***/ "./src/Utils/Pipe/index.js":
 /*!*********************************!*\
   !*** ./src/Utils/Pipe/index.js ***!
@@ -312,7 +256,7 @@ module.exports = Pipe
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = {
-  ElapsedTime: __webpack_require__(/*! ./ElapsedTime */ "./src/Utils/ElapsedTime/index.js"),
+//   ElapsedTime: require('./ElapsedTime'),
   Pipe: __webpack_require__(/*! ./Pipe */ "./src/Utils/Pipe/index.js"),
   Curry: __webpack_require__(/*! ./Curry */ "./src/Utils/Curry/index.js"),
 }
@@ -346,17 +290,6 @@ module.exports = {
 // })
 
 
-
-/***/ }),
-
-/***/ "ramda":
-/*!************************!*\
-  !*** external "ramda" ***!
-  \************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = __WEBPACK_EXTERNAL_MODULE_ramda__;
 
 /***/ })
 
