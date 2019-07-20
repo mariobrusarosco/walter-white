@@ -220,7 +220,10 @@ const Curry = function() {
     args = [...args, ...arguments]
 
     if(args.length === expectedArgs) {
-      return fn(...args)
+      const finalArguments = args
+      args = []
+
+      return fn(...finalArguments)
     }
 
     return wrapperFunction
@@ -278,17 +281,6 @@ module.exports = {
   Lab,
   Utils
 }
-
-// const DrugLord = "Walter White"
-
-// test("Drug Lord test One", () => {
-// 	expect(DrugLord).asPureAs('Walter !!hite')
-// })
-
-// test("Drug Lord test Two", () => {
-// 	expect(DrugLord).asPureAs('Walter White')
-// })
-
 
 
 /***/ })

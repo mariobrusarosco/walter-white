@@ -7,7 +7,10 @@ const Curry = function() {
     args = [...args, ...arguments]
 
     if(args.length === expectedArgs) {
-      return fn(...args)
+      const finalArguments = args
+      args = []
+
+      return fn(...finalArguments)
     }
 
     return wrapperFunction
