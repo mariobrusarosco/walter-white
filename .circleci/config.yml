@@ -8,7 +8,7 @@ defaults:
   docker:
   - image: circleci/node:8.9.1
 jobs:
-  test:
+  build:
     working_directory: ~/repo
     docker:
     - image: circleci/node:8.9.1
@@ -31,7 +31,7 @@ jobs:
     - persist_to_workspace:
         root: ~/repo
         paths: .
-  deploy:
+  publish:
     working_directory: ~/repo
     docker:
     - image: circleci/node:8.9.1
@@ -46,17 +46,17 @@ jobs:
         command: npm publish
 workflows:
   version: 2
-  test-deploy:
+  build-publish:
     jobs:
-    - test:
+    - build:
         filters:
           tags:
             only: /^v.*/
           branches:
             ignore: /.*/
-    - deploy:
+    - publish:
         requires:
-        - test
+        - build
         filters:
           tags:
             only: /^v.*/
