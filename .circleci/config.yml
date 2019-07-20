@@ -18,9 +18,9 @@ jobs:
         keys:
         - v1-dependencies-{{ checksum "package.json" }}
         - v1-dependencies-
-    - run:
-        name: Install
-        command: yarn
+    # - run:
+        # name: Install
+        # command: yarn
     - run:
         name: Run Lint
         command: yarn eslint
