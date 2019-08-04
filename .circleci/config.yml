@@ -56,7 +56,8 @@ workflows:
           tags:
             only: /^v.*/
           branches:
-            ignore: /.*/
+            only:
+              - master
     - publish:
         requires:
         - build
@@ -64,5 +65,4 @@ workflows:
           tags:
             only: /^v.*/
           branches:
-            only:
-              - master
+            ignore: /.*/
