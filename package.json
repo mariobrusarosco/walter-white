@@ -12,7 +12,10 @@
 		"test": "jest --config jest.config.js",
 		"test:watch": "yarn test -- --watch",
 		"build": "yarn eslint && yarn test && webpack --config webpack.config.js",
-		"eslint": "eslint --cache --fix src/"
+		"eslint": "eslint --cache --fix src/",
+		"preversion": "yarn test",
+		"version": "yarn build && git add dist",
+		"postversion": "git push && git push --tags"
 	},
 	"repository": {
 		"type": "git",
