@@ -1,6 +1,6 @@
 {
 	"name": "walter-white",
-	"version": "1.0.23",
+	"version": "1.0.24",
 	"author": "Mario Brusarosco <mariobrusarosco@gmail.com> (http://example.com)",
 	"description": "",
 	"main": "dist/walter-white.js",
@@ -35,6 +35,7 @@
 	},
 	"dependencies": {
 		"@babel/preset-env": "^7.5.4",
+		"chalk": "^2.4.2",
 		"ramda": "^0.26.1"
 	}
 }

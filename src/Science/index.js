@@ -1,9 +1,11 @@
+const newBatch = require('./NewBatch')
+const cook = require('./Cook')
 const expect = require('./Expect')
-const test = require('./Test')
 const assertion = require('./Assert')
 
 module.exports = {
+	newBatch,
 	expect,
-	test,
+	cook,
 	assertion,
 }

@@ -1,7 +1,7 @@
-const Lab = require(`./Lab`)
+const Science = require(`./Science`)
 const Utils = require('./Utils')
 
 module.exports = {
-  Lab,
+  Science,
   Utils
 }

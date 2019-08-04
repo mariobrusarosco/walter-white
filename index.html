@@ -5,6 +5,39 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<title>Walter White</title>
+
+	<script src="./dist/walter-white.js"></script>
+
+	<script>
+		const { newBatch, cook, expect } = WalterWhite.Science
+
+		newBatch(`Crazy-8's Batch`, () => {
+			cook('10 pounds of the little blue', () => {
+				expect(10).toBeAsPureAs(11)
+			})
+
+			cook('20 pounds of the little blue', () => {
+				expect(10).toBeAsPureAs(10)
+			})
+
+			cook('30 pounds of the little blue', () => {
+				expect('Heisenberg').toBeMadeOf(10)
+			})
+
+			cook('40 pounds of the little blue', () => {
+				expect('Heisenberg').toBeMadeOf('bergasdas')
+			})
+
+			cook('50 pounds of the little blue', () => {
+				expect('Heisenberg').toBeMadeOf('berg')
+			})
+
+			cook('60 pounds of the little blue', () => {
+				expect('Heisenberg').toBeMadeOf(/berg/igm)
+			})
+		})
+
+	</script>
 </head>
 <body>
 </body>
