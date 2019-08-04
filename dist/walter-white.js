@@ -2287,6 +2287,8 @@ const expect = function(testedValue) {
 			if(testedValue !== expectedValue) {
 				throw new Error(`${testedValue} isn't as pure as ${expectedValue}`)
 			}
+
+			return true
 		},
 		toBeMadeOf: function(element) {
 			const typeOfArgment = typeof element

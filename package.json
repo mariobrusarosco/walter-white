@@ -1,44 +1,44 @@
 {
-	"name": "walter-white",
-	"version": "1.0.24",
-	"author": "Mario Brusarosco <mariobrusarosco@gmail.com> (http://example.com)",
-	"description": "",
-	"main": "dist/walter-white.js",
-	"files": [
-		"dist"
-	],
-	"scripts": {
-		"dev": "webpack --watch --config webpack.config.js",
-		"test": "jest --config jest.config.js",
-		"test:watch": "yarn test -- --watch",
-		"build": "yarn eslint && yarn test && webpack --config webpack.config.js",
-		"eslint": "eslint --cache --fix src/",
-		"preversion": "yarn test",
-		"version": "yarn build && git add dist",
-		"postversion": "git push && git push --tags"
-	},
-	"repository": {
-		"type": "git",
-		"url": "git+https://github.com/mariobrusarosco/walter-white.git"
-	},
-	"license": "ISC",
-	"bugs": {
-		"url": "https://github.com/mariobrusarosco/walter-white/issues"
-	},
-	"homepage": "https://github.com/mariobrusarosco/walter-white#readme",
-	"devDependencies": {
-		"eslint": "^5.11.1",
-		"express": "^4.16.4",
-		"jest": "^24.0.0",
-		"jest-cli": "^24.0.0",
-		"nodemon": "^1.18.9",
-		"webpack": "^4.28.3",
-		"webpack-cli": "^3.2.0",
-		"webpack-dev-server": "^3.1.14"
-	},
-	"dependencies": {
-		"@babel/preset-env": "^7.5.4",
-		"chalk": "^2.4.2",
-		"ramda": "^0.26.1"
-	}
+  "name": "walter-white",
+  "version": "1.1.0",
+  "author": "Mario Brusarosco <mariobrusarosco@gmail.com> (http://example.com)",
+  "description": "",
+  "main": "dist/walter-white.js",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "dev": "webpack --watch --config webpack.config.js",
+    "test": "jest --config jest.config.js",
+    "test:watch": "yarn test -- --watch",
+    "build": "yarn eslint && yarn test && webpack --config webpack.config.js",
+    "eslint": "eslint --cache --fix src/",
+    "preversion": "yarn test",
+    "version": "yarn build && git add dist",
+    "postversion": "git push && git push --tags"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mariobrusarosco/walter-white.git"
+  },
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mariobrusarosco/walter-white/issues"
+  },
+  "homepage": "https://github.com/mariobrusarosco/walter-white#readme",
+  "devDependencies": {
+    "eslint": "^5.11.1",
+    "express": "^4.16.4",
+    "jest": "^24.0.0",
+    "jest-cli": "^24.0.0",
+    "nodemon": "^1.18.9",
+    "webpack": "^4.28.3",
+    "webpack-cli": "^3.2.0",
+    "webpack-dev-server": "^3.1.14"
+  },
+  "dependencies": {
+    "@babel/preset-env": "^7.5.4",
+    "chalk": "^2.4.2",
+    "ramda": "^0.26.1"
+  }
 }
