@@ -2369,6 +2369,22 @@ module.exports = {
 
 /***/ }),
 
+/***/ "./src/Utils/Compose/index.js":
+/*!************************************!*\
+  !*** ./src/Utils/Compose/index.js ***!
+  \************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+const Compose = (...functions) => initialValue =>
+  functions.reduceRight((acc, currentFunction) =>
+    currentFunction(acc) , initialValue)
+
+module.exports = Compose
+
+
+/***/ }),
+
 /***/ "./src/Utils/Curry/index.js":
 /*!**********************************!*\
   !*** ./src/Utils/Curry/index.js ***!
@@ -2427,6 +2443,7 @@ module.exports = {
 //   ElapsedTime: require('./ElapsedTime'),
   Pipe: __webpack_require__(/*! ./Pipe */ "./src/Utils/Pipe/index.js"),
   Curry: __webpack_require__(/*! ./Curry */ "./src/Utils/Curry/index.js"),
+  Compose: __webpack_require__(/*! ./Compose */ "./src/Utils/Compose/index.js"),
 }
 
 
