@@ -6,7 +6,7 @@ const Curry = function() {
   return function wrapperFunction() {
     alreadyGivenArgs = [...alreadyGivenArgs, ...arguments]
 
-    if(args.length >= expectedArgs) {
+    if(alreadyGivenArgs.length >= expectedArgs) {
       // Ignoring extra arguments that may be passed by the users on the last time they call the Curried function
       const finalArguments = alreadyGivenArgs.slice(0, expectedArgs)
       // Clean all the previous given arguments
