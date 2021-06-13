@@ -1,1 +1,3 @@
-console.log('walter-white')
+#!/usr/bin/env node
+
+console.log('walter-white');
