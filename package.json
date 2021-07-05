@@ -1,13 +1,15 @@
 {
   "name": "walter-white",
-  "version": "1.2.3",
+  "version": "2.0.0",
   "author": "Mario Brusarosco <mariobrusarosco@gmail.com> (http://example.com)",
   "main": "./bin/index.js",
   "path": "./bin/index.js",
   "bin": {
     "walter-white": "bin/index.js"
   },
-  "files": ["bin"],
+  "files": [
+    "bin"
+  ],
   "scripts": {
     "dev": "webpack --watch --config webpack.config.js",
     "test": "jest --config jest.config.js",
