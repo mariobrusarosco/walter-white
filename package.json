@@ -2,13 +2,13 @@
   "name": "walter-white",
   "version": "2.0.0",
   "author": "Mario Brusarosco <mariobrusarosco@gmail.com> (http://example.com)",
-  "main": "./bin/index.js",
-  "path": "./bin/index.js",
+  "main": "./dist/index.js",
   "bin": {
     "walter-white": "bin/index.js"
   },
   "files": [
-    "bin"
+    "bin",
+    "dist"
   ],
   "scripts": {
     "dev": "webpack --watch --config webpack.config.js",
