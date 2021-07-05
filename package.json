@@ -2,12 +2,12 @@
   "name": "walter-white",
   "version": "1.2.3",
   "author": "Mario Brusarosco <mariobrusarosco@gmail.com> (http://example.com)",
-  "description": "walter white",
   "main": "./bin/index.js",
   "path": "./bin/index.js",
   "bin": {
     "walter-white": "bin/index.js"
   },
+  "files": ["bin"],
   "scripts": {
     "dev": "webpack --watch --config webpack.config.js",
     "test": "jest --config jest.config.js",
@@ -18,15 +18,6 @@
     "version": "yarn build && git add dist",
     "postversion": "git push && git push --tags"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/mariobrusarosco/walter-white.git"
-  },
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/mariobrusarosco/walter-white/issues"
-  },
-  "homepage": "https://github.com/mariobrusarosco/walter-white#readme",
   "devDependencies": {
     "eslint": "^5.11.1",
     "express": "^4.16.4",
@@ -40,6 +31,7 @@
   "dependencies": {
     "@babel/preset-env": "^7.5.4",
     "chalk": "^2.4.2",
+    "glob": "^7.1.7",
     "ramda": "^0.26.1"
   }
 }
