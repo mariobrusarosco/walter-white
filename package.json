@@ -1,6 +1,6 @@
 {
   "name": "walter-white",
-  "version": "2.1.3",
+  "version": "1.2.4",
   "author": "Mario Brusarosco <mariobrusarosco@gmail.com> (http://example.com)",
   "main": "./dist/walter-white.js",
   "bin": {
@@ -17,9 +17,8 @@
     "test:watch": "yarn test -- --watch",
     "build": " webpack --config webpack.config.js",
     "eslint": "eslint --cache --fix src/",
-    "preversion": "yarn eslint && yarn test",
-    "version": "yarn build && git add dist",
-    "postversion": "git push && git push --tags"
+    "preversion": "echo preversion",
+    "version": "yarn build && git add dist"
   },
   "devDependencies": {
     "eslint": "^5.11.1",
