@@ -8,7 +8,8 @@
   },
   "files": [
     "bin",
-    "dist"
+    "dist",
+    "test"
   ],
   "module": "./dist/walter-white.js",
   "scripts": {
