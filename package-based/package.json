@@ -1,0 +1,20 @@
+{
+  "name": "package-based",
+  "version": "0.0.0",
+  "license": "MIT",
+  "scripts": {
+    "build-all-monorepo": "nx run-many --target=build --skip-nx-cache",
+    "build-affected-packages": "nx affected --target=build"
+  },
+  "private": true,
+  "dependencies": {},
+  "devDependencies": {
+    "@nrwl/nx-cloud": "latest",
+    "nx": "15.0.4",
+    "prettier": "^2.6.2",
+    "typescript": "^4.8.4"
+  },
+  "workspaces": [
+    "packages/*"
+  ]
+}
